@@ -1,0 +1,29 @@
+{
+  "name": "vdom-to-json",
+  "version": "1.0.0",
+  "description": "Convert virtual-dom objects to and from JSON objects",
+  "main": "lib/index.js",
+  "scripts": {
+    "jshint": "jshint -c .jshintrc lib",
+    "test": "mocha --grep=$GREP test/test.js && npm run jshint",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha test/test.js && istanbul check-coverage --lines 100 --function 100 --statements 100 --branches 100"
+  },
+  "keywords": [
+    "virtual",
+    "dom",
+    "json",
+    "virtual-dom",
+    "vdom"
+  ],
+  "author": "Nolan Lawson <nolan@nolanlawson.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "virtual-dom": "^2.1.1"
+  },
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "istanbul": "^0.4.0",
+    "jshint": "^2.8.0",
+    "mocha": "^2.3.3"
+  }
+}
