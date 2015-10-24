@@ -4,9 +4,12 @@
   "description": "Convert virtual-dom objects to and from JSON objects",
   "main": "lib/index.js",
   "scripts": {
+    "build": "mkdirp dist && browserify -s vdomToJson . > dist/vdom-to-json.js",
+    "prepublish": "npm run build",
     "jshint": "jshint -c .jshintrc lib",
     "test": "mocha --grep=$GREP test/test.js && npm run jshint",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha test/test.js && istanbul check-coverage --lines 100 --function 100 --statements 100 --branches 100"
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha test/test.js && istanbul check-coverage --lines 100 --function 100 --statements 100 --branches 100",
+    "report-coverage": "npm run coverage && istanbul-coveralls --no-rm"
   },
   "keywords": [
     "virtual",
@@ -21,9 +24,12 @@
     "virtual-dom": "^2.1.1"
   },
   "devDependencies": {
+    "browserify": "^11.2.0",
     "chai": "^3.4.0",
     "istanbul": "^0.4.0",
+    "istanbul-coveralls": "^1.0.3",
     "jshint": "^2.8.0",
+    "mkdirp": "^0.5.1",
     "mocha": "^2.3.3"
   }
 }
