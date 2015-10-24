@@ -1,10 +1,10 @@
 {
-  "name": "vdom-to-json",
+  "name": "vdom-as-json",
   "version": "1.0.0",
   "description": "Convert virtual-dom objects to and from JSON objects",
   "main": "lib/index.js",
   "scripts": {
-    "build": "mkdirp dist && browserify -s vdomToJson . > dist/vdom-to-json.js",
+    "build": "mkdirp dist && browserify -s vdomToJson . > dist/vdom-as-json.js",
     "prepublish": "npm run build",
     "jshint": "jshint -c .jshintrc lib",
     "test": "mocha --grep=$GREP test/test.js && npm run jshint",
