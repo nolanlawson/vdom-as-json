@@ -12,7 +12,7 @@ npm install vdom-as-json
 
 If you need an AMD or browser-ready version, please use `dist/vdom-as-json.js` when you `npm install`, or [download from wzrd.in](https://wzrd.in/standalone/vdom-as-json@latest). It will give you a global `vdomAsJson` object.
 
-API
+Usage
 ---
 
 ```js
