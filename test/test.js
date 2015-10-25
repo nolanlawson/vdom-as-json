@@ -4,6 +4,7 @@ var h = require('virtual-dom/h');
 var diff = require('virtual-dom/diff');
 var toJson = require('../lib/toJson');
 var fromJson = require('../lib/fromJson');
+var VirtualNode = require('virtual-dom/vnode/vnode');
 var chai = require('chai');
 chai.should();
 
@@ -38,6 +39,15 @@ describe('vdom-to-json test suite', function () {
     var patch2 = fromJson(json1);
     var json2 = toJson(patch2);
     patch1.should.deep.equal(patch2);
+    json1.should.deep.equal(json2);
+  });
+
+  it('should preserve key/namespace', function () {
+    var node1 = new VirtualNode('a', {}, [], 'bar', 'baz');
+    var json1 = toJson(node1);
+    var node2 = fromJson(json1);
+    var json2 = toJson(node2);
+    node1.should.deep.equal(node2);
     json1.should.deep.equal(json2);
   });
 
