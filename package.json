@@ -4,7 +4,7 @@
   "description": "Convert virtual-dom objects to and from JSON objects",
   "main": "lib/index.js",
   "scripts": {
-    "build": "mkdirp dist && browserify -s vdomToJson . > dist/vdom-as-json.js",
+    "build": "mkdirp dist && browserify -s vdomAsJson . > dist/vdom-as-json.js",
     "prepublish": "npm run build",
     "jshint": "jshint -c .jshintrc lib",
     "test": "mocha --grep=$GREP test/test.js && npm run jshint",
