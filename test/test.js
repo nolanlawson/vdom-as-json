@@ -78,7 +78,12 @@ describe('vdom-to-json test suite', function () {
     h('a', {href: 'https://npm.im/hyperscript'}, 'hyperscript'),
     h('h1.fun', {style: {'font-family': 'Comic Sans MS'}}, 'Happy Birthday!'),
     h('input', {type: 'number'}, 1),
-    h('input', {type: 'number', value: 1})
+    h('input', {type: 'number', value: 1}),
+    h('div', {attributes: {
+      'data-something': 1,
+      'data-something-else': true,
+      'data-another-thing': null
+    }})
   ];
 
   structures.forEach(function (structure, i) {
