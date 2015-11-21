@@ -26,7 +26,7 @@ var fromJson = require('vdom-as-json/fromJson'); // rehydrate node/patch from JS
 Examples
 ---
 
-### Convert a node to and from JSON
+### Convert a virtual node to and from JSON
 
 ```js
 var h = require('virtual-dom/h');
@@ -42,7 +42,7 @@ var json = toJson(node);
 var rehydratedNode = fromJson(json);
 ```
 
-### Convert a patch to and from JSON
+### Convert a virtual patch to and from JSON
 
 ```js
 var h = require('virtual-dom/h');
