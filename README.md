@@ -99,3 +99,8 @@ Using the standalone browser bundle (`dist/vdom-as-json.js`):
 var toJson = vdomAsJson.toJson;
 var fromJson = vdomAsJson.fromJson;
 ```
+
+Limitations
+----
+
+This library doesn't support thunks, hooks, etc., because it's not possible to serialize custom behavior.
