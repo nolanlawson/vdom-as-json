@@ -1,7 +1,9 @@
 vdom-as-json [![Build Status](https://travis-ci.org/nolanlawson/vdom-as-json.svg)](https://travis-ci.org/nolanlawson/vdom-as-json) [![Coverage Status](https://coveralls.io/repos/nolanlawson/vdom-as-json/badge.svg?branch=master&service=github)](https://coveralls.io/github/nolanlawson/vdom-as-json?branch=master)
 ----
 
-Convert [virtual-dom](https://github.com/Matt-Esch/virtual-dom) objects to and from JSON. Designed for generating patches on the server or in a web worker and then sending that to the client. Can convert virtual trees, nodes, and patches.
+Convert [virtual-dom](https://github.com/Matt-Esch/virtual-dom) objects to and from JSON. Designed for generating virtual nodes on the server or in a web worker and then sending that to the client.
+
+This lib can serialize both nodes and patches, but the patch JSON is a bit big due to the underlying `VirtualPatch` structure. For a more efficient patch serialization algorithm, check out [vdom-serialized-patch](https://github.com/nolanlawson/vdom-serialized-patch).
 
 Install
 ---
