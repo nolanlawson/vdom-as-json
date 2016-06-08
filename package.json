@@ -11,6 +11,10 @@
     "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha test/test.js && istanbul check-coverage --lines 100 --function 100 --statements 100 --branches 100",
     "report-coverage": "npm run coverage && istanbul-coveralls --no-rm"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nolanlawson/vdom-as-json.git"
+  },
   "keywords": [
     "virtual",
     "dom",
