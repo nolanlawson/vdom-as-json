@@ -63,6 +63,29 @@ describe('vdom-to-json test suite', function () {
     (deserialized['k2'] === undefined).should.equal(true);
   });
 
+  describe('serialization of virtualNodes in patches as references to a tree',
+  function(){
+    it('should use references for vNodes in json version of patches',
+        function () {
+      var nodeA = renderCount(0);
+      var nodeB = renderCount(1);
+      var patch1 = diff(nodeA, nodeB);
+      var json1 = toJson(patch1);
+      json1['0'].v.should.equal('i:0');
+      json1['1'].v.should.equal('i:1');
+    });
+    it('should properly restore the vnode references in the patch', function(){
+      var nodeA = renderCount(0);
+      var nodeB = renderCount(1);
+      var patch1 = diff(nodeA, nodeB);
+      var json1 = toJson(patch1);
+      var patch2 = fromJson(json1);
+      patch2['0'].vNode.should.deep.equal(patch2['a']);
+      patch2['1'].vNode.should.deep.equal(patch2['a'].children[0]);
+    });
+  });
+
+
   var structures = [
     h("div", "hello"),
     h("div", [h("span", "goodbye")]),
