@@ -1,6 +1,6 @@
 {
   "name": "vdom-as-json",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Convert virtual-dom objects to and from JSON objects",
   "main": "lib/index.js",
   "scripts": {
