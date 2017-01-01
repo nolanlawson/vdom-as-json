@@ -51,6 +51,18 @@ describe('vdom-to-json test suite', function () {
     json1.should.deep.equal(json2);
   });
 
+  it('should preserve keys with undefined values for patch property removal', function(){
+    var simpleObj= {
+      k1: 'fred',
+      k2: undefined
+    };
+    var deserialized = fromJson(JSON.parse(JSON.stringify(toJson(simpleObj))));
+    Object.keys(deserialized).length.should.equal(2);
+    deserialized['k1'].should.equal('fred');
+    ('k2' in deserialized).should.equal(true);
+    (deserialized['k2'] === undefined).should.equal(true);
+  });
+
   var structures = [
     h("div", "hello"),
     h("div", [h("span", "goodbye")]),
