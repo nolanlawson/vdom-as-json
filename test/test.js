@@ -51,7 +51,8 @@ describe('vdom-to-json test suite', function () {
     json1.should.deep.equal(json2);
   });
 
-  it('should preserve keys with undefined values for patch property removal', function(){
+  it('should preserve keys with undefined values for patch property removal',
+      function () {
     var simpleObj= {
       k1: 'fred',
       k2: undefined
@@ -74,7 +75,7 @@ describe('vdom-to-json test suite', function () {
       json1['0'].v.should.equal('i:0');
       json1['1'].v.should.equal('i:1');
     });
-    it('should properly restore the vnode references in the patch', function(){
+    it('should restore the vnode references in the patch', function () {
       var nodeA = renderCount(0);
       var nodeB = renderCount(1);
       var patch1 = diff(nodeA, nodeB);
@@ -83,6 +84,36 @@ describe('vdom-to-json test suite', function () {
       patch2['0'].vNode.should.deep.equal(patch2['a']);
       patch2['1'].vNode.should.deep.equal(patch2['a'].children[0]);
     });
+    it('should handle fromJson of legacy patches with serialized vnode ' +
+        'instead of indexed reference', function () {
+      var nodeA = renderCount(0);
+      var nodeB = renderCount(1);
+      var patch1 = diff(nodeA, nodeB);
+      var json1 = toJson(patch1);
+      json1['0'].v = json1['a'];
+      json1['1'].v = json1['a'].c[0];
+      var patch2 = fromJson(json1);
+      patch2['0'].vNode.should.deep.equal(patch2['a']);
+      patch2['1'].vNode.should.deep.equal(patch2['a'].children[0]);
+    });
+    it('should be able to serialize part of a patch without ' +
+        'ctx.patchHashIndex', function () {
+      var nodeA = renderCount(0);
+      var nodeB = renderCount(1);
+      var patch1 = diff(nodeA, nodeB);
+      //call toJson on one of the patches - this won't provide the ctx
+      //This test is needed to get code coverage
+      var json1 = toJson(patch1['0']);
+      json1.v.should.exist;
+    });
+  });
+  it('should toJson on array without a provided context', function () {
+    var nodeA = renderCount(0);
+    var nodeB = renderCount(1);
+    var patch1 = diff(nodeA, nodeB);
+    var json1 = toJson([patch1]);
+    json1[0]["0"].v.should.exist;
+    json1[0]["0"].p.should.exist;
   });
 
 
