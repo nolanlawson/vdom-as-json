@@ -1,4 +1,4 @@
-vdom-as-json [![Build Status](https://travis-ci.org/nolanlawson/vdom-as-json.svg)](https://travis-ci.org/nolanlawson/vdom-as-json) [![Coverage Status](https://coveralls.io/repos/nolanlawson/vdom-as-json/badge.svg?branch=master&service=github)](https://coveralls.io/github/nolanlawson/vdom-as-json?branch=master)
+vdom-as-json [![Build Status](https://travis-ci.org/nolanlawson/vdom-as-json.svg)](https://travis-ci.org/nolanlawson/vdom-as-json) [![Coverage Status](https://coveralls.io/repos/nolanlawson/vdom-as-json/badge.svg?branch=master&service=github)](https://coveralls.io/github/nolanlawson/vdom-as-json?branch=master) [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 ----
 
 Convert [virtual-dom](https://github.com/Matt-Esch/virtual-dom) objects to and from JSON. Designed for generating virtual nodes on the server or in a web worker and then sending that to the client.
